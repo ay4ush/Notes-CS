@@ -3,3 +3,24 @@ IP Address:
     It's the address of website over Internet
 DNS:
     Domain Name System : It's the registry that links IP addresses to a domain name
+Ports:
+    Ports are basically ways to hit different services on in a single server
+    using different doors.
+Segmentation:
+    ->When everything is on single server it becomes a security issue
+    ->Hence Segmentation sets different parts of the applications that is
+      different services on different servers.
+    ->Since services are working on differnet servers ROUTING is used for services
+      to speak with each others.
+    ->Firewalls are setup between each routes to accept traffic from only necessary servers
+Subnets:
+    ->It's a Network inside another Network.
+    ->It usually have IP Addresses as follows:
+      10.0.1.x
+    ->Subnets allow servers to be stay hidden from public network and allows only
+      the necessary server to face the public internet
+NAT:
+    ->It is a module that sits outside the private Subnets
+    ->If Subnet needs the make API call over internet, It can
+      send request to NAT and that'll make the API call(Public IP expensive and it's more secure ofc)
+    ->NAT is basically a recieptionist for private subnets.
