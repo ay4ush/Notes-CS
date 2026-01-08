@@ -1,0 +1,19 @@
+APIGateway:
+    Functions as a singular point of entry for a microservice Architecture
+    can perform load balancing at certain extent(Only for small applications)
+    can implement security features like authentication/authorization but not limited to the same.
+    also implements features like rate limiter.
+    It routes the traffic to required services
+
+Load Balancer:
+    It's simple
+    It's used there are alot of requests coming in.
+    It routes request to necessary servers.
+    It distributes requests as per utilization of servers
+    It doesn't care much about what is the request.
+
+Reverse Proxy:
+    Forward Proxy funcitions as a recieptionist between user and internet
+    Reverse Proxy functions as a recieptionist between internet and services
+    Handles SSL/TSL, caching and hides backend servers
+    Hides the addresses of backend services
