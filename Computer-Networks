@@ -1,26 +1,82 @@
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-IP Address: 
-    It's the address of website over Internet
-DNS:
-    Domain Name System : It's the registry that links IP addresses to a domain name
-Ports:
-    Ports are basically ways to hit different services on in a single server
-    using different doors.
-Segmentation:
-    ->When everything is on single server it becomes a security issue
-    ->Hence Segmentation sets different parts of the applications that is
-      different services on different servers.
-    ->Since services are working on differnet servers ROUTING is used for services
-      to speak with each others.
-    ->Firewalls are setup between each routes to accept traffic from only necessary servers
-Subnets:
-    ->It's a Network inside another Network.
-    ->It usually have IP Addresses as follows:
-      10.0.1.x
-    ->Subnets allow servers to be stay hidden from public network and allows only
-      the necessary server to face the public internet
-NAT:
-    ->It is a module that sits outside the private Subnets
-    ->If Subnet needs the make API call over internet, It can
-      send request to NAT and that'll make the API call(Public IP expensive and it's more secure ofc)
-    ->NAT is basically a recieptionist for private subnets.
+# Computer Networks Basics
+
+## 1. IP Address (Internet Protocol Address)
+**Definition:** A unique numerical label assigned to every device connected to a network that uses the Internet Protocol for communication.
+
+### Versions
+- **IPv4:** 32-bit number (e.g., `192.168.1.1`). Limited to ~4 billion addresses.
+- **IPv6:** 128-bit number (e.g., `2001:0db8:85a3:0000:0000:8a2e:0370:7334`). Virtually unlimited addresses.
+
+### Types
+- **Public IP:** Assigned by ISP, visible to the internet.
+- **Private IP:** Used within a local network (e.g., `10.x.x.x`, `192.168.x.x`). Reserved by IANA and not routable on the public internet.
+- **Static IP:** Fixed address that doesn't change.
+- **Dynamic IP:** Assigned automatically by DHCP (Dynamic Host Configuration Protocol) and changes periodically.
+
+---
+
+## 2. DNS (Domain Name System)
+**Definition:** The "phonebook" of the internet. It translates human-readable domain names (like `google.com`) into IP addresses (like `142.250.190.46`).
+
+### Hierarchy & Resolution
+1. **Recursive Resolver:** The first stop (usually ISP). Checks cache or asks other servers.
+2. **Root Server:** Knows where to find the TLD servers (Top Level Domain like `.com`, `.org`).
+3. **TLD Server:** Point to the Authoritative Name Server for the specific domain.
+4. **Authoritative Name Server:** Holds the actual DNS records (A, CNAME, MX) and returns the final IP.
+
+---
+
+## 3. Ports
+**Definition:** Virtual endpoints for network connections. They allow a single server to host multiple services by directing traffic to the correct application "door".
+
+### Categories
+- **Well-Known Ports (0-1023):** Reserved for system services.
+- **Registered Ports (1024-49151):** User processes or applications.
+- **Dynamic/Private Ports (49152-65535):** Ephemeral ports for client-side connections.
+
+### Common Ports Table
+| Port | Protocol | Service |
+| :--- | :--- | :--- |
+| 21 | FTP | File Transfer |
+| 22 | SSH | Secure Remote Login |
+| 53 | DNS | Domain Name Resolution |
+| 80 | HTTP | Unsecured Web Traffic |
+| 443 | HTTPS | Secured Web Traffic (TLS/SSL) |
+
+---
+
+## 4. Network Segmentation
+**Definition:** Dividing a computer network into smaller parts (subnetworks or segments) to improve performance and security.
+
+### Benefits
+- **Security:** Limits the spread of cyberattacks. If one segment is compromised, others remain safe.
+- **Performance:** Reduces congestion by limiting broadcast traffic to local segments.
+- **Compliance:** Helps separate sensitive data (e.g., PCI-DSS requiring payment data isolation).
+
+### Implementation
+- **VLAN (Virtual LAN):** Logical segmentation at Layer 2 (Data Link Layer).
+- **Subnets:** Segmentation at Layer 3 (Network Layer) using IP addressing.
+
+---
+
+## 5. Subnets (Subnetworks)
+**Definition:** A logical subdivision of an IP network.
+
+### Key Concepts
+- **Subnet Mask:** A 32-bit number (e.g., `255.255.255.0`) that divides the IP address into network and host portions.
+- **CIDR Notation:** A compact representation (e.g., `/24` means the first 24 bits are the network).
+- **Function:** Allows administrators to hide internal network structure and routing complexity from the external world. Devices in different subnets need a router to communicate.
+
+---
+
+## 6. NAT (Network Address Translation)
+**Definition:** A method to remap one IP address space into another. It typically allows multiple devices on a private network to share a single public IP address.
+
+### Types
+- **Static NAT:** One-to-one mapping (1 Private IP = 1 Public IP). Used for servers needing external access.
+- **Dynamic NAT:** Maps a private IP to the next available public IP from a pool.
+- **PAT (Port Address Translation) / NAT Overload:** Maps multiple private IPs to a single public IP using unique source ports. This is the most common home/office setup.
+
+### Role ("The Receptionist")
+- **Security:** Hides internal IP structure. External traffic sees only the NAT device's public IP.
+- **Economy:** Conserves public IPv4 addresses.

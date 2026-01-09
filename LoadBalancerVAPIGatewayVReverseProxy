@@ -1,19 +1,54 @@
-APIGateway:
-    Functions as a singular point of entry for a microservice Architecture
-    can perform load balancing at certain extent(Only for small applications)
-    can implement security features like authentication/authorization but not limited to the same.
-    also implements features like rate limiter.
-    It routes the traffic to required services
+# Load Balancer vs API Gateway vs Reverse Proxy
 
-Load Balancer:
-    It's simple
-    It's used there are alot of requests coming in.
-    It routes request to necessary servers.
-    It distributes requests as per utilization of servers
-    It doesn't care much about what is the request.
+## 1. Load Balancer
+**Definition:** A Load Balancer distributes incoming network traffic across multiple servers to ensure no single server becomes overwhelmed. It improves application responsiveness, availability, and fault tolerance.
 
-Reverse Proxy:
-    Forward Proxy funcitions as a recieptionist between user and internet
-    Reverse Proxy functions as a recieptionist between internet and services
-    Handles SSL/TSL, caching and hides backend servers
-    Hides the addresses of backend services
+### Key Functions
+- **Traffic Distribution:** Spreads requests using algorithms like Round Robin, Least Connections, or IP Hash.
+- **Health Checks:** Periodically checks if backend servers are online and removes unhealthy ones from the pool.
+- **High Availability:** Redirects traffic away from failed servers to ensure continuous uptime.
+- **SSL Offloading:** Can handle SSL encryption/decryption to reduce load on backend servers.
+
+### Types by Layer
+- **Layer 4 (Transport Layer):** Routes based on IP address and Port (TCP/UDP). Faster but less intelligent.
+- **Layer 7 (Application Layer):** Routes based on content (URL, Headers, Cookies). More intelligent but heavier processing.
+
+---
+
+## 2. Reverse Proxy
+**Definition:** A Reverse Proxy sits in front of backend servers and forwards client requests to them. Unlike a **Forward Proxy** (which acts on behalf of a client/user to access the internet), a Reverse Proxy acts on behalf of the server.
+
+### Key Features
+- **Security:** Hides the identity and private IP addresses of backend servers. Attacks hit the proxy, not the server.
+- **SSL Termination:** Decrypts incoming requests and communicates with backend servers via HTTP (or HTTPS), saving backend resources.
+- **Caching:** Caches static content (images, CSS) to speed up response times and reduce load.
+- **Load Balancing:** Basic load balancing capabilities are often included.
+
+---
+
+## 3. API Gateway
+**Definition:** An API Gateway is a specialized Reverse Proxy designed specifically for microservices architectures. It acts as a single entry point for all API calls.
+
+### Key Functions
+- **Single Entry Point:** Aggregates multiple microservices into a unified API endpoint for the client.
+- **Routing:** Routes requests to the appropriate specific microservice (e.g., `/users` -> User Service, `/orders` -> Order Service).
+- **Authentication & Authorization:** Handles identity verification (JWT, OAuth) centrally so individual services don't have to.
+- **Rate Limiting:** Protects backend services from overuse or DDoS attacks by limiting requests per user/IP.
+- **Protocol Translation:** Can convert between protocols (e.g., HTTP/JSON to gRPC or SOAP).
+
+---
+
+## 4. Comparison Summary
+
+| Feature | Load Balancer | Reverse Proxy | API Gateway |
+| :--- | :--- | :--- | :--- |
+| **Primary Goal** | Distribute traffic (Availability) | Security & Anonymity | API Management & Routing |
+| **Scope** | One Service (Horizontal Scaling) | One or More Web Apps | Microservices Architecture |
+| **Placement** | Front of Server Pool | Front of Web Server | Front of Microservices |
+| **Awareness** | Server Health & Load | Content Caching & Protection | Business Logic & API Rules |
+
+### How they work together
+In a complex system, these components are often layered:
+1. **Load Balancer**: Distributes traffic to multiple Gateway/Proxy instances.
+2. **Reverse Proxy / API Gateway**: Handles security, auth, and routing to specific services.
+3. **Internal Load Balancer**: (Optional) Distributes traffic among instances of a specific microservice.
