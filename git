@@ -3,7 +3,7 @@
 ## ⚡ Most Used Commands
 
 - **`git status`**  
-  **Description:** Checks the current state of your working directory and staging area. It lets you know which files have been modified, which are staged for commit, and which are untracked by Git. Always run this before adding or committing to ensure you know exactly what is going on.
+  **Description:** Checks the current state of your working directory and staging area. It lets you know which files have been modified, added, or deleted.
   - `-s` : (**Short**) Gives the output in a concise, short-format, making it easier to scan when many files are changed.
 
 - **`git add .`**  
