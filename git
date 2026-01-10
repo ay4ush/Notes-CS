@@ -1,0 +1,97 @@
+# Git & GitHub Commands Notes
+
+## ⚡ Most Used Commands
+
+- **`git status`**  
+  Displays the state of the working directory and staging area.
+  - `-s` : Give the output in the short-format.
+
+- **`git add .`**  
+  Stages changes for the next commit.
+  - `-A` or `--all` : Stages all changes (new, modified, and deleted files).
+  - `-p` : Interactively stages changes (patch mode).
+
+- **`git commit -m "msg"`**  
+  Commits the staged snapshot.
+  - `-m "msg"` : Sets the commit message.
+  - `-a` : Automatically stages modified and deleted files (but not new/untracked ones) before committing.
+  - `--amend` : Redoes the last commit (useful for fixing typos or adding forgotten files).
+
+- **`git push`**  
+  Uploads local content to a remote repo.
+  - `-u origin <branch>` : Sets the upstream tracking reference.
+  - `-f` or `--force` : Forces the push (overwrites remote history - dangerous!).
+  - `--tags` : Pushes all tags to the remote.
+
+- **`git pull`**  
+  Fetches and merges changes from remote.
+  - `--rebase` : Reapplies your local commits on top of the incoming changes (cleaner history).
+
+- **`git clone <url>`**  
+  Copies a remote repository.
+  - `--depth 1` : Create a shallow clone with a history truncated to the latest commit (saves download size).
+
+- **`git branch`**  
+  Lists, creates, or deletes branches.
+  - `-d <branch>` : Deletes the branch (safe delete).
+  - `-D <branch>` : Force deletes the branch (ignores unmerged changes).
+  - `-a` : Lists all local and remote branches.
+  - `-m <old> <new>` : Renames a branch.
+
+- **`git checkout <branch>`**  
+  Switches branches or restores files.
+  - `-b <new-branch>` : Creates and switches to a new branch.
+
+- **`git merge <branch>`**  
+  Joins history from another branch.
+  - `--abort` : Aborts the merge and restores the pre-merge state (useful during conflicts).
+  - `--no-ff` : Creates a merge commit even when a fast-forward is possible.
+
+- **`git log`**  
+  Shows commit history.
+  - `--oneline` : Shows each commit as a single line (hash + message).
+  - `--graph` : Draws a text-based graphical representation of the branches and merge history.
+  - `-n <number>` : Limits the output to the last `<number>` commits.
+  - `--stat` : Shows which files were altered.
+
+---
+
+## 🛠️ Setup & Configuration
+
+- **`git config`**
+  - `--global` : Applies configuration to the current user (all repos).
+  - `--list` : Lists all Git settings.
+
+- **`git init`**
+  Initializes a new Git repository.
+
+## 🔄 Undoing Changes
+
+- **`git reset`**
+  - `--soft <commit>` : Moves HEAD to `<commit>`, but leaves changes staged (ready to commit).
+  - `--mixed <commit>` : (Default) Moves HEAD to `<commit>`, un-stages changes, but keeps them in working directory.
+  - `--hard <commit>` : Moves HEAD to `<commit>` and destroys all changes.
+
+- **`git restore <file>`**
+  - `--staged` : Unstages the file (similar to `git reset HEAD <file>`).
+
+- **`git clean`**
+  Removes untracked files from the working tree.
+  - `-n` : Dry run (shows what *would* be deleted).
+  - `-f` : Force delete.
+  - `-d` : Remove untracked directories as well.
+
+## 📦 Stashing
+
+- **`git stash`**
+  - `save "message"` : Stash with a descriptive message.
+  - `pop` : Apply stash and remove from list.
+  - `apply` : Apply stash but keep in list.
+  - `list` : Show all stashes.
+  - `drop` : Remove a specific stash.
+
+## 🔍 Inspection & Comparison
+
+- **`git diff`**
+  - `--staged` (or `--cached`) : Shows changes in staging area vs last commit.
+  - `--name-only` : Shows only names of changed files.
