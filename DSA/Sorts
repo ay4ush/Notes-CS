@@ -1,0 +1,52 @@
+Bubble Sort: 
+
+    It's comparing the adjecent elements and swapping them if they are in the wrong order.
+    Time Complexity: O(n^2)
+    Space Complexity: O(1)
+    Stable: Yes
+    In-place: Yes
+
+Selection Sort:
+
+    It's finding the minimum element and swapping it with the first element.
+    Time Complexity: O(n^2)
+    Space Complexity: O(1)
+    Stable: No
+    In-place: Yes
+
+Insertion Sort:
+
+    It consists of 2 parts sorted array and unsorrted array, 
+    first part is sorted and second part is unsorted.
+    iterate through the unsorted part and insert the element at the right index in sorted part.
+    Time Complexity: O(n^2)
+    Space Complexity: O(1)
+    Stable: Yes
+    In-place: Yes
+
+# No done by me yet.
+Merge Sort:
+
+    It's dividing the array into two halves and sorting them recursively.
+    Time Complexity: O(n log n)
+    Space Complexity: O(n)
+    Stable: Yes
+    In-place: No
+
+# No done by me yet.
+Quick Sort:
+
+    It's dividing the array into two halves and sorting them recursively.
+    Time Complexity: O(n log n)
+    Space Complexity: O(1)
+    Stable: No
+    In-place: Yes
+
+# No done by me yet.
+Heap Sort:
+
+    It's building a heap and extracting the maximum element.
+    Time Complexity: O(n log n)
+    Space Complexity: O(1)
+    Stable: No
+    In-place: Yes
