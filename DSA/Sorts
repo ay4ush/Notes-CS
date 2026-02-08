@@ -2,17 +2,39 @@ Bubble Sort:
 
     It's comparing the adjecent elements and swapping them if they are in the wrong order.
     Time Complexity: O(n^2)
+    Best Case: O(n)
+    Worst Case: O(n^2)
     Space Complexity: O(1)
     Stable: Yes
     In-place: Yes
+
+    def bubbleSort(arr):
+        n = len(arr)
+        for i in range(n):
+            for j in range(0, n - i - 1): (Last part is sorted, n-i-1 points to last unsorted num)
+                if arr[j] > arr[j + 1]:
+q                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
+        return arr
 
 Selection Sort:
 
     It's finding the minimum element and swapping it with the first element.
     Time Complexity: O(n^2)
+        Best Case: O(n)
+        Worst Case: O(n^2)
     Space Complexity: O(1)
     Stable: No
     In-place: Yes
+
+    def selectionSort(arr):
+        n = len(arr)
+        for i in range(n):
+            min_idx = i
+            for j in range(i + 1, n):
+                if arr[j] < arr[min_idx]:
+                    min_idx = j
+            arr[i], arr[min_idx] = arr[min_idx], arr[i]
+        return arr
 
 Insertion Sort:
 
@@ -20,9 +42,22 @@ Insertion Sort:
     first part is sorted and second part is unsorted.
     iterate through the unsorted part and insert the element at the right index in sorted part.
     Time Complexity: O(n^2)
+        Best Case: O(n)
+        Worst Case: O(n^2)
     Space Complexity: O(1)
     Stable: Yes
     In-place: Yes
+
+    def insertionSort(arr):
+        n = len(arr)
+        for i in range(1, n):
+            key = arr[i]
+            j = i - 1
+            while j >= 0 and key < arr[j]: (j>=0 is for j-=1)(other is for )
+                arr[j + 1] = arr[j] 
+                j -= 1
+            arr[j + 1] = key
+        return arr
 
 # Not done by me yet.
 Merge Sort:
@@ -32,6 +67,7 @@ Merge Sort:
     Space Complexity: O(n)
     Stable: Yes
     In-place: No
+    
 
 # Not done by me yet.
 Quick Sort:
