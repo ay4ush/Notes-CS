@@ -1,6 +1,6 @@
 Bubble Sort: 
 
-    It's comparing the adjecent elements and swapping them if they are in the wrong order.
+    Description: It's comparing the adjecent elements and swapping them if they are in the wrong order.
     Time Complexity: O(n^2)
     Best Case: O(n)
     Worst Case: O(n^2)
@@ -18,7 +18,7 @@ q                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 Selection Sort:
 
-    It's finding the minimum element and swapping it with the first element.
+    Description: It's finding the minimum element and swapping it with the first element.
     Time Complexity: O(n^2)
         Best Case: O(n)
         Worst Case: O(n^2)
@@ -38,9 +38,9 @@ Selection Sort:
 
 Insertion Sort:
 
-    It consists of 2 parts sorted array and unsorrted array, 
-    first part is sorted and second part is unsorted.
-    iterate through the unsorted part and insert the element at the right index in sorted part.
+    Description: It consists of 2 parts sorted array and unsorrted array, 
+                 first part is sorted and second part is unsorted.
+                 iterate through the unsorted part and insert the element at the right index in sorted part.
     Time Complexity: O(n^2)
         Best Case: O(n)
         Worst Case: O(n^2)
@@ -53,16 +53,16 @@ Insertion Sort:
         for i in range(1, n):
             key = arr[i]
             j = i - 1
-            while j >= 0 and key < arr[j]: (j>=0 is for j-=1)(other is for )
-                arr[j + 1] = arr[j] 
-                j -= 1
+            while j >= 0 and key < arr[j]: (j>=0 is for j-=1)(other is for finding right place)
+                arr[j + 1] = arr[j] (we shift the element to the right)
+                j -= 1 (J moveds from right to left)
             arr[j + 1] = key
         return arr
 
 # Not done by me yet.
 Merge Sort:
 
-    It's dividing the array into two halves and sorting them recursively.
+    Description: It's dividing the array into two halves and sorting them recursively.
     Time Complexity: O(n log n)
     Space Complexity: O(n)
     Stable: Yes
@@ -72,7 +72,7 @@ Merge Sort:
 # Not done by me yet.
 Quick Sort:
 
-    It's dividing the array into two halves and sorting them recursively.
+    Description: It's dividing the array into two halves and sorting them recursively.
     Time Complexity: O(n log n)
     Space Complexity: O(1)
     Stable: No
@@ -81,7 +81,7 @@ Quick Sort:
 # Not done by me yet.
 Heap Sort:
 
-    It's building a heap and extracting the maximum element.
+    Description: It's building a heap and extracting the maximum element.
     Time Complexity: O(n log n)
     Space Complexity: O(1)
     Stable: No
