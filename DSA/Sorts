@@ -13,7 +13,7 @@ Bubble Sort:
         for i in range(n):
             for j in range(0, n - i - 1): (Last part is sorted, n-i-1 points to last unsorted num)
                 if arr[j] > arr[j + 1]:
-q                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
         return arr
 
 Selection Sort:
