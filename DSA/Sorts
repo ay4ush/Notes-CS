@@ -24,7 +24,7 @@ Insertion Sort:
     Stable: Yes
     In-place: Yes
 
-# No done by me yet.
+# Not done by me yet.
 Merge Sort:
 
     It's dividing the array into two halves and sorting them recursively.
@@ -33,7 +33,7 @@ Merge Sort:
     Stable: Yes
     In-place: No
 
-# No done by me yet.
+# Not done by me yet.
 Quick Sort:
 
     It's dividing the array into two halves and sorting them recursively.
@@ -42,7 +42,7 @@ Quick Sort:
     Stable: No
     In-place: Yes
 
-# No done by me yet.
+# Not done by me yet.
 Heap Sort:
 
     It's building a heap and extracting the maximum element.
