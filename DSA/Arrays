@@ -1,0 +1,24 @@
+Methods used to solve Arrays:
+
+    1. 2 pointer
+        -> opposite direction(sorted array)
+        -> same direction(slow/fast)
+    2. Sliding window
+        -> fixed size
+        -> variable size
+        -> longest/shortest subarray/substring
+    3. Prefix sum
+        -> sum of subarray/substring
+        -> sum of range
+    4. Difference array
+        -> range update
+        -> range query
+    5. Kadane's Algorithm
+        -> max sum subarray
+    6. Sorting & Traversal
+        -> Merge intervals
+        -> Custom Sorting Problem
+    7. Frequency Counter/Frequency
+        -> Anagrams
+        -> Counting Duplicates
+        -> Subarray with == sum
